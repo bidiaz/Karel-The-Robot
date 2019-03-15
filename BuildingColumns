@@ -1,0 +1,71 @@
+f/Karel must help rebuild 
+//broken columns. Make a 
+//column of beepers above
+//each beeper you find on
+//the first row
+
+import stanford.karel.*;
+
+function main() {
+   while(frontIsClear()){
+      move();
+      if(beepersPresent()){
+         buildColumn();
+         }
+   }
+}
+
+function buildColumn() {
+   putBeeperLine();
+   goBackDown();
+   }
+   
+function putBeeperLine() {
+   turnLeft();
+   for(int i = 0; i<7; i++){
+      move();
+      putBeeper();
+      }
+   }
+
+function goBackDown() {
+   turnAround();
+  for(int i = 0; i<7; i++){
+      move();
+      }
+   turnLeft();
+   }
+   
+   
+   //Your final task is to teach
+//Karel to find the midpoint
+//of any world. You can assume
+//that all worlds are square.
+function main(){
+   while(frontIsClear()) {
+      move();
+      }
+      putBeeper();
+      turnAround();
+      while (frontIsClear()) {
+         move();
+         }
+      putBeeper();
+      turnAround();
+      move();
+      while (noBeepersPresent()) {
+         move();
+         if (beepersPresent()) {
+            pickBeeper();
+            turnAround();
+            move();
+            putBeeper();
+            move();
+            }
+         }
+          pickBeeper();
+            turnAround();
+            while (frontIsClear()){
+               move();
+               }
+}
